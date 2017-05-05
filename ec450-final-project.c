@@ -1,5 +1,5 @@
 /*********************************************************************************
-* ENG EC 450 -- FINAL PROJECT -- DRAWABLE WALKIE TALKIES
+* ENG EC 450 -- FINAL PROJECT -- DOODLE TALKIES
 * Team members: Veronica Herzog, Blake Hina
 *********************************************************************************/
 
@@ -291,7 +291,6 @@ void WDT_A_IRQHandler(void) {
 
     // Clears received drawing
     if((button54 == 0) && last_button54) {
-        printf("clicked button!");
         clear_recArray();
     }
 
@@ -309,7 +308,7 @@ void WDT_A_IRQHandler(void) {
 
 
 /*************************************************
- * UART PROTOCAL HANDLER
+ * UART PROTOCOL HANDLER
  *************************************************/
 volatile int x_pos;
 void EUSCIA2_IRQHandler(void){
@@ -318,10 +317,8 @@ void EUSCIA2_IRQHandler(void){
 
     /* TRANSLATE RECIEVED DATA: */
     // There is no message being sent from partner
-    // Assign noMessageRec state to True
     if(recByte == 'N') {
         noMessageRec = 1;
-        //printf("received N\n");
     }
     // There is a message being sent
     else if(recByte_last == 'M') {
@@ -564,4 +561,3 @@ void main(void){
         MAP_PCM_gotoLPM0();
     }
 }
-
